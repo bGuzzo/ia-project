@@ -16,6 +16,7 @@
         (at b3 depot)
         (at b4 depot)
         (at b5 depot)
+
         (at r depot)
         (at car depot)
 
@@ -29,7 +30,9 @@
 
         (person-needs-content p1 food)
         (person-needs-content p1 drugs)
+
         (person-needs-content p2 drugs)
+        
         (person-needs-content p3 food)
 
         (box-empty b1)
@@ -50,10 +53,11 @@
     )
     (:goal
         (and
-            (person-has-content p1 food)
-            (person-has-content p1 drugs)
-            (person-has-content p2 drugs)
-            (person-has-content p3 food)
+            (at r loc1)
+            ; (person-has-content p1 food)
+            ; (person-has-content p1 drugs)
+            ; (person-has-content p2 drugs)
+            ; (person-has-content p3 food)
         )
     )
 )

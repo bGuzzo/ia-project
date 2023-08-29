@@ -1,11 +1,11 @@
-(define (domain emergencyServicesLogistics)
+(define (domain rescue_sys)
     (:requirements :negative-preconditions :typing :conditional-effects)
 
     (:types
         location locatable place - object
-        moving not-moving - locatable
-        person - not-moving
-        box content robot carrier - moving
+        movable fixed - locatable
+        person - fixed
+        box content robot carrier - movable
     )
 
     (:predicates
@@ -48,6 +48,7 @@
             (not (box-contains ?b ?c))
             (box-empty ?b)
             (person-has-content ?p ?c)
+            (not (person-needs-content ?p ?c))
         )
     )
 
@@ -88,7 +89,7 @@
     (:action move-robot
         :parameters (?r - robot ?from - location ?to - location
         )
-        :precondition (at ?r ?from)
+        :precondition (and (at ?r ?from))
         :effect (and
             (not (at ?r ?from))
             (at ?r ?to)
@@ -106,6 +107,7 @@
             (not (at ?r ?from))
             (at ?r ?to)
             (not (at ?car ?from))
+            (at ?car ?to)
         )
     )
 )
