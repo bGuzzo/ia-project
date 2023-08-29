@@ -78,10 +78,13 @@
     )
     (:goal
         (and
-            ; (or
-            ;     (person-has-content p1 food)
-            ;     (person-has-content p1 tools)
-            ; )
+            (or
+                (person-has-content p1 food)
+            )
+
+            (or
+                (person-has-content p1 tools)
+            )
 
             (person-has-content p2 drugs)
 
