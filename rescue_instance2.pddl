@@ -67,13 +67,13 @@
     )
     (:goal
         (and
-            (or
+            ;(or
                 (person-has-content p1 food)
-            )
+            ;)
 
-            (or
+            ;(or
                 (person-has-content p1 tools)
-            )
+            ;)
 
             (person-has-content p2 drugs)
             (person-has-content p3 drugs)
