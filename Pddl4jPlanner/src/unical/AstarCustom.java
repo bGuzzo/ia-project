@@ -48,12 +48,14 @@ public class AstarCustom extends AbstractPlanner {
 
 	private static final Logger LOGGER = LogManager.getLogger(PositiveAdjustedSum.class.getName());
 
+	// Default configuration
 	public static final String HEURISTIC_SETTING = "HEURISTIC";
 	public static final StateHeuristic.Name DEFAULT_HEURISTIC = StateHeuristic.Name.FAST_FORWARD;
 	public static final String WEIGHT_HEURISTIC_SETTING = "WEIGHT_HEURISTIC";
 	public static final double DEFAULT_WEIGHT_HEURISTIC = 1.0;
 	public static final int DEFAULT_MAX_DEPTH = 100;
 
+	// Planner configuration
 	private double heuristicWeight;
 	private StateHeuristic.Name heuristic;
 	private int maxDepth;
@@ -165,9 +167,11 @@ public class AstarCustom extends AbstractPlanner {
 	private StateHeuristic getHeuristics(Problem problem) {
 
 		if (customHeuristics) {
+			// Instantiate custom heuristics
 			return new PositiveAdjustedSum(problem);
 		}
 		else {
+			// Instantiate default heuristics
 			return StateHeuristic.getInstance(this.getHeuristic(), problem);
 		}
 	}
