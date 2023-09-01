@@ -42,10 +42,7 @@ public class PositiveAdjustedSum extends RelaxedGraphHeuristic {
 
 		int value = 0;
 		final BitVector pGoal = super.getGoal().getPositiveFluents();
-		LOGGER.info("pGoal vector = " + pGoal + "\n");
 		for (int g = pGoal.nextSetBit(0); g >= 0; g = pGoal.nextSetBit(g + 1)) {
-			LOGGER.info("pGoal g = " + g + "\n");
-			LOGGER.info("pPropLevel[g] = " + this.pPropLevel[g] + "\n");
 			value += this.pPropLevel[g];
 		}
 		return value;

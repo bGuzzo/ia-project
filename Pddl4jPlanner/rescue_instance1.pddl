@@ -2,12 +2,12 @@
     (:domain rescue_sys)
 
     (:objects
-        depot loc1 - location
+        depot loc1 - zone
         b1 b2 b3 b4 b5 - box
         p1 p2 p3 - person
         r - robot
         car - carrier
-        pl1 pl2 pl3 pl4 - place
+        pl1 pl2 pl3 pl4 - slot
         drugs food tools - content
     )
     (:init
@@ -35,27 +35,30 @@
 
         (person-needs-content p3 food)
 
-        (box-empty b1)
-        (box-empty b2)
-        (box-empty b3)
-        (box-empty b4)
-        (box-empty b5)
+        (free-box b1)
+        (free-box b2)
+        (free-box b3)
+        (free-box b4)
+        (free-box b5)
 
-        (place-available pl1)
-        (place-available pl2)
-        (place-available pl3)
-        (place-available pl4)
+        (free-slot pl1)
+        (free-slot pl2)
+        (free-slot pl3)
+        (free-slot pl4)
 
-        (place-of-carrier pl1 car)
-        (place-of-carrier pl2 car)
-        (place-of-carrier pl3 car)
-        (place-of-carrier pl4 car)
+        (slot-of-carrier pl1 car)
+        (slot-of-carrier pl2 car)
+        (slot-of-carrier pl3 car)
+        (slot-of-carrier pl4 car)
     )
     (:goal
         (and
+            ; Person 1
             (person-has-content p1 food)
             (person-has-content p1 drugs)
+            ; Person 2
             (person-has-content p2 drugs)
+            ; Person 3
             (person-has-content p3 food)
         )
     )
