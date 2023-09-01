@@ -43,7 +43,7 @@ import picocli.CommandLine;
 
 @Getter
 @Setter
-@CommandLine.Command(name = "AstarCustom", version = "AstarCustom 1.0", description = "Solves a specified planning problem using A* search strategy.", sortOptions = false, mixinStandardHelpOptions = true, headerHeading = "Usage:%n", synopsisHeading = "%n", descriptionHeading = "%nDescription:%n%n", parameterListHeading = "%nParameters:%n", optionListHeading = "%nOptions:%n")
+@CommandLine.Command(name = "AstarCustom")
 public class AstarCustom extends AbstractPlanner {
 
 	private static final Logger LOGGER = LogManager.getLogger(PositiveAdjustedSum.class.getName());
@@ -128,7 +128,7 @@ public class AstarCustom extends AbstractPlanner {
 		if (plan != null) {
 			LOGGER.info("* A* search succeeded \n");
 			this.getStatistics().setTimeToSearch(end - begin);
-			this.getStatistics().setMemoryUsedToSearch(endMemory - beginMemory);
+			this.getStatistics().setMemoryUsedToSearch(Math.abs(endMemory - beginMemory));
 		}
 		else {
 			LOGGER.info("* A* search failed \n");
@@ -178,23 +178,18 @@ public class AstarCustom extends AbstractPlanner {
 
 	public Plan astar(Problem problem) {
 
-		Runtime runtime = Runtime.getRuntime();
-		this.beginMemory = runtime.totalMemory() - runtime.freeMemory();
-
 		// Check if the problem is supported by the planner
 		if (!this.isSupported(problem)) {
 			return null;
 		}
-
-		// First we create an instance of the heuristic to use to guide the search
+		Runtime runtime = Runtime.getRuntime();
+		this.beginMemory = runtime.totalMemory() - runtime.freeMemory();
+		// First we create an instance of the choosed heuristic
 		final StateHeuristic heuristic = this.getHeuristics(problem);
-
 		// We get the initial state from the planning problem
 		final State init = new State(problem.getInitialState());
-
 		// We initialize the closed list of nodes (store the nodes explored)
 		final Set<Node> close = new HashSet<>();
-
 		// We initialize the opened list to store the pending node according to function f
 		final double weight = this.getHeuristicWeight();
 		final PriorityQueue<Node> open = new PriorityQueue<>(100, new Comparator<Node>() {
@@ -207,29 +202,23 @@ public class AstarCustom extends AbstractPlanner {
 				return Double.compare(f1, f2);
 			}
 		});
-
 		// We create the root node of the tree search
 		final Node root = new Node(init, null, -1, 0, heuristic.estimate(init, problem.getGoal()));
-
 		// We add the root to the list of pending nodes
 		open.add(root);
 		Plan plan = null;
-
 		// We set the timeout in ms allocated to the search
 		final long timeout = this.getTimeout() * 1000;
 		long time = 0;
-
 		// We start the search
 		while (!open.isEmpty() && plan == null && time < timeout) {
 			// We pop the first node in the pending list open
 			final Node current = open.poll();
-
 			// Ignore the node if depth exceeded
 			if (current.getDepth() > this.maxDepth) {
 				continue;
 			}
 			close.add(current);
-
 			// If the goal is satisfied in the current node then extract the search and return it
 			if (current.satisfy(problem.getGoal())) {
 				LOGGER.info("Found goal at depth " + current.getDepth() + "\n");
@@ -263,7 +252,6 @@ public class AstarCustom extends AbstractPlanner {
 				}
 			}
 		}
-
 		// Finally, we return the search computed or null if no search was found
 		this.endMemory = runtime.totalMemory() - runtime.freeMemory();
 		return plan;
