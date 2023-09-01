@@ -303,7 +303,7 @@ public class AstarCustom extends AbstractPlanner {
 			planner.setHeuristic(StateHeuristic.Name.AJUSTED_SUM);
 			planner.setHeuristicWeight(25);
 			planner.setMaxDepth(200);
-			planner.setCustomHeuristics(false);
+			planner.setCustomHeuristics(true);
 			LOGGER.info(
 				"Max depth: " + planner.getMaxDepth() + ", Custom heuristics: "
 						+ planner.isCustomHeuristics() + ", Heuristics weight: "
