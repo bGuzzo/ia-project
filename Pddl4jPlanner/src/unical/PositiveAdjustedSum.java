@@ -48,6 +48,12 @@ public class PositiveAdjustedSum extends RelaxedGraphHeuristic {
 	}
 
 	@Override
+	/*
+	 * Compute the sum of the times each proposition appear true in the relaxed panning
+	 * graph builded. That define a metric over the distance to the goal.
+	 *
+	 * In fact, this is the values used in the sum heuristics
+	 */
 	protected final int getSumValue() {
 
 		int value = 0;
@@ -55,10 +61,11 @@ public class PositiveAdjustedSum extends RelaxedGraphHeuristic {
 		// A fluent is a proposition whose truth value changes during planning process
 		final BitVector pGoal = super.getGoal().getPositiveFluents();
 		for (int g = pGoal.nextSetBit(0); g >= 0; g = pGoal.nextSetBit(g + 1)) {
-			// Get the level of appearance (i.e. the times) the proposition identified by a fluent g appear in the goal
+			/* Get the level of appearance (i.e. the times) of the proposition identified by a
+			 * fluent g appear true in the relaxed panning graph builded
+			 */
 			value += this.pPropLevel[g];
 		}
-		// Return the sum of the times each proposition appear in the goal
 		return value;
 	}
 
@@ -73,7 +80,7 @@ public class PositiveAdjustedSum extends RelaxedGraphHeuristic {
 				max = gl;
 			}
 		}
-		// Return the max times of a proposition appear in the goal
+		// Return the max times of a proposition appear true in the the relaxed panning graph builded
 		return max;
 	}
 
