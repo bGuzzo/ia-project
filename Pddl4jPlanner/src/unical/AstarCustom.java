@@ -1,19 +1,5 @@
 
 package unical;
-/*
- * Copyright (c) 2021 by Damien Pellier <Damien.Pellier@imag.fr>.
- *
- * This file is part of PDDL4J library.
- *
- * PDDL4J is free software: you can redistribute it and/or modify * it under the terms of the GNU General Public License
- * as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
- *
- * PDDL4J is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
- * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License * along with PDDL4J.  If not,
- * see <http://www.gnu.org/licenses/>
- */
 
 import java.util.Comparator;
 import java.util.HashSet;
@@ -50,7 +36,7 @@ public class AstarCustom extends AbstractPlanner {
 
 	// Default configuration
 	public static final String HEURISTIC_SETTING = "HEURISTIC";
-	public static final StateHeuristic.Name DEFAULT_HEURISTIC = StateHeuristic.Name.FAST_FORWARD;
+	public static final StateHeuristic.Name DEFAULT_HEURISTIC = StateHeuristic.Name.AJUSTED_SUM;
 	public static final String WEIGHT_HEURISTIC_SETTING = "WEIGHT_HEURISTIC";
 	public static final double DEFAULT_WEIGHT_HEURISTIC = 1.0;
 	public static final int DEFAULT_MAX_DEPTH = 100;
@@ -116,28 +102,6 @@ public class AstarCustom extends AbstractPlanner {
 	}
 
 	@Override
-	public Plan solve(final Problem problem) {
-
-		LOGGER.info("* Starting A* search \n");
-		// Search a solution
-		final long begin = System.currentTimeMillis();
-		final Plan plan = this.astar(problem);
-		final long end = System.currentTimeMillis();
-		// If a plan is found update the statistics of the planner
-		// and log search information
-		if (plan != null) {
-			LOGGER.info("* A* search succeeded \n");
-			this.getStatistics().setTimeToSearch(end - begin);
-			this.getStatistics().setMemoryUsedToSearch(Math.abs(endMemory - beginMemory));
-		}
-		else {
-			LOGGER.info("* A* search failed \n");
-		}
-		// Return the plan found or null if the search fails.
-		return plan;
-	}
-
-	@Override
 	public boolean hasValidConfiguration() {
 
 		return super.hasValidConfiguration() && this.getHeuristicWeight() > 0.0
@@ -176,23 +140,43 @@ public class AstarCustom extends AbstractPlanner {
 		}
 	}
 
+	@Override
+	public Plan solve(final Problem problem) {
+
+		LOGGER.info("* Starting A* search \n");
+		final long begin = System.currentTimeMillis();
+		// Start search with custom A* algorithm
+		final Plan plan = this.astar(problem);
+		final long end = System.currentTimeMillis();
+		if (plan != null) {
+			// Search successes set statistics
+			LOGGER.info("* A* search succeeded \n");
+			this.getStatistics().setTimeToSearch(end - begin);
+			this.getStatistics().setMemoryUsedToSearch(Math.abs(endMemory - beginMemory));
+		}
+		else {
+			LOGGER.info("* A* search failed \n");
+		}
+		// If fail return null plan
+		return plan;
+	}
+
 	public Plan astar(Problem problem) {
 
-		// Check if the problem is supported by the planner
+		// Check if well formed
 		if (!this.isSupported(problem)) {
 			return null;
 		}
 		Runtime runtime = Runtime.getRuntime();
 		this.beginMemory = runtime.totalMemory() - runtime.freeMemory();
-		// First we create an instance of the choosed heuristic
 		final StateHeuristic heuristic = this.getHeuristics(problem);
-		// We get the initial state from the planning problem
+		// Build the initial state of the problem
 		final State init = new State(problem.getInitialState());
-		// We initialize the closed list of nodes (store the nodes explored)
-		final Set<Node> close = new HashSet<>();
-		// We initialize the opened list to store the pending node according to function f
+		// Define a set of already esplored node
+		final Set<Node> exploredNode = new HashSet<>();
 		final double weight = this.getHeuristicWeight();
-		final PriorityQueue<Node> open = new PriorityQueue<>(100, new Comparator<Node>() {
+		// Define a fringe as priority queue based of weighted-f function
+		final PriorityQueue<Node> fringe = new PriorityQueue<>(100, new Comparator<Node>() {
 
 			@Override
 			public int compare(Node n1, Node n2) {
@@ -202,57 +186,57 @@ public class AstarCustom extends AbstractPlanner {
 				return Double.compare(f1, f2);
 			}
 		});
-		// We create the root node of the tree search
+		// Build the root of the searching three
 		final Node root = new Node(init, null, -1, 0, heuristic.estimate(init, problem.getGoal()));
-		// We add the root to the list of pending nodes
-		open.add(root);
+		fringe.add(root);
 		Plan plan = null;
-		// We set the timeout in ms allocated to the search
-		final long timeout = this.getTimeout() * 1000;
-		long time = 0;
-		// We start the search
-		while (!open.isEmpty() && plan == null && time < timeout) {
-			// We pop the first node in the pending list open
-			final Node current = open.poll();
+		// Start the search
+		while (!fringe.isEmpty() && plan == null) {
+			// Remove first node from the fringe
+			final Node current = fringe.poll();
 			// Ignore the node if depth exceeded
 			if (current.getDepth() > this.maxDepth) {
 				continue;
 			}
-			close.add(current);
-			// If the goal is satisfied in the current node then extract the search and return it
+			exploredNode.add(current);
 			if (current.satisfy(problem.getGoal())) {
+				// Problem solved
 				LOGGER.info("Found goal at depth " + current.getDepth() + "\n");
 				this.endMemory = runtime.totalMemory() - runtime.freeMemory();
 				return this.extractPlan(current, problem);
 			}
-			else { // Else we try to apply the actions of the problem to the current node
+			else {
 				for (int i = 0; i < problem.getActions().size(); i++) {
 					// We get the actions of the problem
 					Action a = problem.getActions().get(i);
 					if (a.isApplicable(current)) {
+						// If action a is applicable to current node generate child node
 						Node next = new Node(current);
 						next.setDepth(current.getDepth() + 1);
-						// We apply the effect of the action
+						// Get requirements and effects of the action a applied
 						final List<ConditionalEffect> effects = a.getConditionalEffects();
 						for (ConditionalEffect ce : effects) {
+							// In the current state satisfy all the preconditions apply the effects on the child node
 							if (current.satisfy(ce.getCondition())) {
 								next.apply(ce.getEffect());
 							}
 						}
-						// We set the new child node information
-						final double g = current.getCost() + 1;
-						if (!close.contains(next)) {
-							next.setCost(g);
+						// if the new node (sate) is not explored yet add the child into the fringe
+						if (!exploredNode.contains(next)) {
+							// Define cost ad the number of the nodes already explored
+							next.setCost(current.getCost() + 1);
 							next.setParent(current);
+							// Set the applied action (encoded as integer) that generate child node
 							next.setAction(i);
+							// Set the estimate distance to the goal according to the current heuristics
 							next.setHeuristic(heuristic.estimate(next, problem.getGoal()));
-							open.add(next);
+							// Add child node to the fringe to be explored soon
+							fringe.add(next);
 						}
 					}
 				}
 			}
 		}
-		// Finally, we return the search computed or null if no search was found
 		this.endMemory = runtime.totalMemory() - runtime.freeMemory();
 		return plan;
 	}
