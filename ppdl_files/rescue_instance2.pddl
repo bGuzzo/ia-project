@@ -3,12 +3,12 @@
     (:requirements :disjunctive-preconditions)
 
     (:objects
-        depot loc1 loc2 loc3 loc4 loc5 - zone
+        depot zone1 zone2 zone3 zone4 zone5 - zone
         b1 b2 b3 - box
         p1 p2 p3 p4 p5 p6 - person
         r1 r2 - robot
         carl car2 - carrier
-        pl1car1 pl2car1 pl1car2 pl2car2 - slot
+        sl1car1 sl2car1 sl1car2 sl2car2 - slot
         drugs food tools - content
     )
     (:init
@@ -26,12 +26,12 @@
         (at drugs depot)
         (at tools depot)
 
-        (at p1 loc1)
-        (at p2 loc1)
-        (at p3 loc2)
-        (at p4 loc3)
-        (at p5 loc4)
-        (at p6 loc5)
+        (at p1 zone1)
+        (at p2 zone1)
+        (at p3 zone2)
+        (at p4 zone3)
+        (at p5 zone4)
+        (at p6 zone5)
 
         (person-needs-content p1 food)
         (person-needs-content p1 tools)
@@ -55,15 +55,15 @@
         (free-box b2)
         (free-box b3)
 
-        (free-slot pl1car1)
-        (free-slot pl2car1)
-        (free-slot pl1car2)
-        (free-slot pl2car2)
+        (free-slot sl1car1)
+        (free-slot sl2car1)
+        (free-slot sl1car2)
+        (free-slot sl2car2)
 
-        (slot-of-carrier pl1car1 carl)
-        (slot-of-carrier pl2car1 carl)
-        (slot-of-carrier pl1car2 car2)
-        (slot-of-carrier pl2car2 car2)
+        (slot-of-carrier sl1car1 carl)
+        (slot-of-carrier sl2car1 carl)
+        (slot-of-carrier sl1car2 car2)
+        (slot-of-carrier sl2car2 car2)
     )
     (:goal
         (and
