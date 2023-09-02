@@ -69,7 +69,7 @@
         )
     )
 
-    (:action drop-box-on-carrier
+    (:action drop-box-of-carrier
         :parameters (?box - box ?car - carrier ?rob - robot ?zone - zone ?slot - slot
         )
         :precondition (and
