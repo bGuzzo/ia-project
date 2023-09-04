@@ -24,16 +24,14 @@ private:
         if (progress_ < 1.0)
         {
             progress_ += 0.2;
-            send_feedback(progress_, "Robot " + arguments[2] + " is dropping content " + arguments[1] + " of the box " + arguments[0] + "in zone " + arguments[3]);
+            send_feedback(progress_, "Robot " + arguments[2] + " is dropping content " + arguments[1] + " of the box " + arguments[0] + "in zone " + arguments[3]) + " [" << std::min(100.0, progress_ * 100.0) << "%]  \n" << std::flush;
         }
         else
         {
-            finish(true, 1.0, "Robot " + arguments[2] + " putted content " + arguments[1] + " in box " + arguments[0] + " in zone " + arguments[3]);
+            finish(true, 1.0, "Robot " + arguments[2] + " putted content " + arguments[1] + " in box " + arguments[0] + " in zone " + arguments[3]) + " [" << std::min(100.0, progress_ * 100.0) << "%]  \n" << std::flush;
             progress_ = 0.0;
             std::cout << std::endl;
         }
-        std::cout << "\r\e[K" << std::flush;
-        std::cout << "Robot " + arguments[2] + " is dropping content " + arguments[1] + " of the box " + arguments[0] + " in zone " + arguments[3] + " [" << std::min(100.0, progress_ * 100.0) << "%]  " << std::flush;
     }
     float progress_;
 };
