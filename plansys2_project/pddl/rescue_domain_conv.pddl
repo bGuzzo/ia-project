@@ -1,4 +1,4 @@
-(define (domain rescue_sys_conv)
+(define (domain rescue_sys_conv_plansys)
     (:requirements :negative-preconditions :typing :conditional-effects :adl :universal-preconditions :durative-actions :numeric-fluents :duration-inequalities)
 
     (:types
@@ -27,7 +27,7 @@
         (free-robot ?rob - robot)
     )
 
-    (:durative-action put-content-in-box
+    (:durative-action put_content_in_box
         :parameters (?box - box ?cont - content ?rob - robot ?zone - zone
         )
         :duration(= ?duration 1)
@@ -50,7 +50,7 @@
         )
     )
 
-    (:durative-action drop-content-of-box
+    (:durative-action drop_content_of_box
         :parameters (?box - box ?cont - content ?rob - robot ?per - person ?zone - zone
         )
 
@@ -78,7 +78,7 @@
         )
     )
 
-    (:durative-action put-box-on-carrier
+    (:durative-action put_box_on_carrier
         :parameters (?box - box ?car - carrier ?rob - robot ?zone - zone ?slot - slot
         )
         :duration(= ?duration 2)
@@ -101,7 +101,7 @@
         )
     )
 
-    (:durative-action drop-box-of-carrier
+    (:durative-action drop_box_of_carrier
         :parameters (?box - box ?car - carrier ?rob - robot ?zone - zone ?slot - slot
         )
         :duration(= ?duration 2)
@@ -123,7 +123,7 @@
         )
     )
 
-    (:durative-action move-robot
+    (:durative-action move_robot
         :parameters (?rob - robot ?from - zone ?to - zone
         )
         :duration(= ?duration 3)
@@ -140,7 +140,7 @@
         )
     ) 
 
-    (:durative-action move-robot-with-carrier
+    (:durative-action move_robot_with_carrier
         :parameters (?rob - robot ?car - carrier ?from - zone ?to - zone
         )
         :duration (= ?duration (* (carrier-cost ?car) 3))

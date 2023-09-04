@@ -12,7 +12,7 @@ class PutBoxOnCarrier : public plansys2::ActionExecutorClient
 {
 public:
     PutBoxOnCarrier()
-        : plansys2::ActionExecutorClient("put-box-on-carrier", 200ms)
+        : plansys2::ActionExecutorClient("put_box_on_carrier", 200ms)
     {
         progress_ = 0.0;
     }
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 {
     rclcpp::init(argc, argv);
     auto node = std::make_shared<PutBoxOnCarrier>();
-    node->set_parameter(rclcpp::Parameter("action_name", "put-box-on-carrier"));
+    node->set_parameter(rclcpp::Parameter("action_name", "put_box_on_carrier"));
     node->trigger_transition(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE);
     rclcpp::spin(node->get_node_base_interface());
     rclcpp::shutdown();

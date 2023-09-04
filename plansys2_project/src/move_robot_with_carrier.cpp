@@ -12,7 +12,7 @@ class MoveRobotWithCarrier : public plansys2::ActionExecutorClient
 {
 public:
     MoveRobotWithCarrier()
-        : plansys2::ActionExecutorClient("move-robot-with-carrier", 200ms)
+        : plansys2::ActionExecutorClient("move_robot_with_carrier", 200ms)
     {
         progress_ = 0.0;
     }
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 {
     rclcpp::init(argc, argv);
     auto node = std::make_shared<MoveRobotWithCarrier>();
-    node->set_parameter(rclcpp::Parameter("action_name", "move-robot-with-carrier"));
+    node->set_parameter(rclcpp::Parameter("action_name", "move_robot_with_carrier"));
     node->trigger_transition(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE);
     rclcpp::spin(node->get_node_base_interface());
     rclcpp::shutdown();

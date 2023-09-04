@@ -12,7 +12,7 @@ class DropContentOfBox : public plansys2::ActionExecutorClient
 {
 public:
     DropContentOfBox()
-        : plansys2::ActionExecutorClient("drop-content-of-box", 200ms)
+        : plansys2::ActionExecutorClient("drop_content_of_box", 200ms)
     {
         progress_ = 0.0;
     }
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 {
     rclcpp::init(argc, argv);
     auto node = std::make_shared<DropContentOfBox>();
-    node->set_parameter(rclcpp::Parameter("action_name", "drop-content-of-box"));
+    node->set_parameter(rclcpp::Parameter("action_name", "drop_content_of_box"));
     node->trigger_transition(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE);
     rclcpp::spin(node->get_node_base_interface());
     rclcpp::shutdown();

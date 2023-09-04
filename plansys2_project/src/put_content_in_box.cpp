@@ -12,7 +12,7 @@ class PutContentInBox : public plansys2::ActionExecutorClient
 {
 public:
   PutContentInBox()
-      : plansys2::ActionExecutorClient("put-content-in-box", 200ms)
+      : plansys2::ActionExecutorClient("put_content_in_box", 200ms)
   {
     progress_ = 0.0;
   }
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 {
   rclcpp::init(argc, argv);
   auto node = std::make_shared<PutContentInBox>();
-  node->set_parameter(rclcpp::Parameter("action_name", "put-content-in-box"));
+  node->set_parameter(rclcpp::Parameter("action_name", "put_content_in_box"));
   node->trigger_transition(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE);
   rclcpp::spin(node->get_node_base_interface());
   rclcpp::shutdown();
