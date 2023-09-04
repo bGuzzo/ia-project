@@ -25,37 +25,23 @@ set instance drugs content
 set instance food content
 set instance tools content
 
-set function (= (content_cost drugs) 1)
-set function (= (content_cost food) 2)
-set function (= (content_cost tools) 3)
+set predicate (box_at b1 depot)
+set predicate (box_at b2 depot)
+set predicate (box_at b3 depot)
+set predicate (box_at b4 depot)
+set predicate (box_at b5 depot)
 
-set function (= (box_cost b1) 0)
-set function (= (box_cost b2) 0)
-set function (= (box_cost b3) 0)
-set function (= (box_cost b4) 0)
-set function (= (box_cost b5) 0)
-
-set function (= (carrier_cost car) 1)
-
-set function (= (path_cost r) 0)
-
-set predicate (at b1 depot)
-set predicate (at b2 depot)
-set predicate (at b3 depot)
-set predicate (at b4 depot)
-set predicate (at b5 depot)
-
-set predicate (at r depot)
+set predicate (robot_at r depot)
 set predicate (free_robot r)
-set predicate (at car depot)
+set predicate (carrier_at car depot)
 
-set predicate (at food depot)
-set predicate (at drugs depot)
-set predicate (at tools depot)
+set predicate (content_at food depot)
+set predicate (content_at drugs depot)
+set predicate (content_at tools depot)
 
-set predicate (at p1 zone1)
-set predicate (at p2 zone1)
-set predicate (at p3 zone2)
+set predicate (person_at p1 zone1)
+set predicate (person_at p2 zone1)
+set predicate (person_at p3 zone2)
 
 set predicate (person_needs_content p1 food)
 set predicate (person_needs_content p1 drugs)
@@ -80,8 +66,5 @@ set predicate (slot_of_carrier sl2 car)
 set predicate (slot_of_carrier sl3 car)
 set predicate (slot_of_carrier sl4 car)
 
-set goal (person_has_content p1 food)
-set goal (person_has_content p1 drugs)
-set goal (person_has_content p2 drugs)
-set goal (person_has_content p3 food)
+set goal (and(person_has_content p1 food))
 
