@@ -1,12 +1,16 @@
 (define (domain rescue_sys_conv_plansys)
     (:requirements :negative-preconditions :typing :conditional-effects :adl :universal-preconditions :durative-actions :numeric-fluents :duration-inequalities)
 
-    (:types
-        zone locatable slot - object
-        movable fixed - locatable
-        person - fixed
-        box content robot carrier - movable
+    ; (:types
+    ;     zone locatable slot - object
+    ;     movable fixed - locatable
+    ;     person - fixed
+    ;     box content robot carrier - movable
+    ; )
+
+    (:types zone slot box content robot carrier - object
     )
+    
 
     (:functions
         (path_cost ?rob - robot)
@@ -16,7 +20,7 @@
     )
 
     (:predicates
-        (at ?obj - locatable ?zone - zone)
+        (at ?obj - object ?zone - zone)
         (free_box ?box - box)
         (box_filled ?box - box ?cont - content)
         (box_on_carrier ?box - box ?car - carrier)
