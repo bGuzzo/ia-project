@@ -33,7 +33,7 @@ private:
             std::cout << std::endl;
         }
         std::cout << "\r\e[K" << std::flush;
-        std::cout << "Robot " + arguments[0] + " is moving with carrier " + arguments[1] + " from zone " + arguments[2] + " to zone " + arguments[3] << std::min(100.0, progress_ * 100.0) << "%]  " << std::flush;
+        std::cout << "Robot " + arguments[0] + " is moving with carrier " + arguments[1] + " from zone " + arguments[2] + " to zone " + arguments[3] << std::min(100.0, progress_ * 100.0) + " [" << "%]  " << std::flush;
     }
     float progress_;
 };
