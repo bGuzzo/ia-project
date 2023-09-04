@@ -1,7 +1,9 @@
 (define (domain rescue_sys_plansys)
     (:requirements :negative-preconditions :typing :conditional-effects :adl :universal-preconditions :durative-actions)
 
-    (:types zone locatable slot person box content robot carrier )
+    (:types
+        zone locatable slot person box content robot carrier
+    )
 
     (:predicates
         (robot_at ?rob - robot ?zone - zone)
@@ -117,7 +119,7 @@
             (at end (free_robot ?rob))
             (at end (robot_at ?rob ?to))
         )
-    ) 
+    )
 
     (:durative-action move_robot_with_carrier
         :parameters (?rob - robot ?car - carrier ?from - zone ?to - zone
