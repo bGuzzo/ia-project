@@ -27,7 +27,7 @@ def generate_launch_description():
             )
         ),
         launch_arguments={
-            "model_file": example_dir + "/pddl/rescue_domain_conv.pddl",
+            "model_file": example_dir + "/pddl/rescue_domain_plansys.pddl",
             "namespace": namespace,
         }.items(),
     )

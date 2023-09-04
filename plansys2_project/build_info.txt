@@ -1,3 +1,11 @@
+## BUILD
 source /opt/ros/iron/setup.bash
 colcon build --symlink-install
 source install/setup.bash
+
+## RUN
+FIRST TERMINAL -> ros2 launch plansys2_project plansys2_project_launch.py
+SECOND TERMINAL -> ros2 run plansys2_terminal plansys2_terminal
+SECOND TERMINAL -> source /home/bruno/Documents/GitHub/ia-project/plansys2_project/launch/commands
+SECOND TERMINAL -> run plan-file /home/bruno/Documents/GitHub/ia-project/plansys2_project/pddl/rescue_domain_plan.plan
+
