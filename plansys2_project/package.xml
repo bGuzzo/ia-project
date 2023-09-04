@@ -6,9 +6,9 @@
 
   <description>ROS2 Planning System</description>
 
-  <!-- <maintainer email="fmrico@gmail.com">Francisco Martin Rico</maintainer> -->
+  <maintainer email="brunoguzzo18@gmail.com">Bruno Guzzo</maintainer>
 
-  <!-- <license>Apache License, Version 2.0</license> -->
+  <license>Apache License, Version 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
