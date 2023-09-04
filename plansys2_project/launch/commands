@@ -66,5 +66,4 @@ set predicate (slot_of_carrier sl2 car)
 set predicate (slot_of_carrier sl3 car)
 set predicate (slot_of_carrier sl4 car)
 
-set goal (and(person_has_content p1 food))
-
+set goal (and (person-has-content p1 food) (person-has-content p1 drugs) (person-has-content p2 drugs) (person-has-content p3 food))
