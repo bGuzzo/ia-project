@@ -24,14 +24,16 @@ private:
         if (progress_ < 1.0)
         {
             progress_ += 0.2;
-            send_feedback(progress_, "Robot " + arguments[2] + " is dropping box " + arguments[0] + " of the carrier " + arguments[1] + " in zone " + arguments[3] + " releasing slot " + arguments[4]) + " [" << std::min(100.0, progress_ * 100.0) << "%]  \n" << std::flush;
+            send_feedback(progress_, "Robot " + arguments[2] + " is dropping box " + arguments[0] + " of the carrier " + arguments[1] + " in zone " + arguments[3] + " releasing slot " + arguments[4]);
         }
         else
         {
-            finish(true, 1.0, "Robot " + arguments[2] + " dropped box " + arguments[0] + " of the carrier " + arguments[1] + " in zone " + arguments[3] + " releasing slot " + arguments[4]) + " [" << std::min(100.0, progress_ * 100.0) << "%]  \n" << std::flush;
+            finish(true, 1.0, "Robot " + arguments[2] + " dropped box " + arguments[0] + " of the carrier " + arguments[1] + " in zone " + arguments[3] + " releasing slot " + arguments[4]);
             progress_ = 0.0;
             std::cout << std::endl;
         }
+        std::cout << "\r\e[K" << std::flush;
+        std::cout << "Robot " + arguments[2] + " is dropping box " + arguments[0] + " of the carrier " + arguments[1] + " in zone " + arguments[3] + " releasing slot " + arguments[4] + " [" << std::min(100.0, progress_ * 100.0) << "%]  " << std::flush;
     }
     float progress_;
 };
