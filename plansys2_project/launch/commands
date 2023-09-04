@@ -1,0 +1,84 @@
+set instance depot zone
+set instance zone1 zone
+set instance zone2 zone
+
+set instance b1 box
+set instance b2 box
+set instance b3 box
+set instance b4 box
+set instance b5 box
+
+set instance p1 person
+set instance p2 person
+set instance p3 person
+
+set instance r robot
+
+set instance car carrier
+
+set instance sl1 slot
+set instance sl2 slot
+set instance sl3 slot
+set instance sl4 slot
+
+set instance drugs content
+set instance food content
+set instance tools content
+
+set function (= (content-cost drugs) 1)
+set function (= (content-cost food) 2)
+set function (= (content-cost tools) 3)
+
+set function (= (box-cost b1) 0)
+set function (= (box-cost b2) 0)
+set function (= (box-cost b3) 0)
+set function (= (box-cost b4) 0)
+set function (= (box-cost b5) 0)
+
+set function (= (carrier-cost car) 1)
+
+set function (= (path-cost r) 0)
+
+set predicate (at b1 depot)
+set predicate (at b2 depot)
+set predicate (at b3 depot)
+set predicate (at b4 depot)
+set predicate (at b5 depot)
+
+set predicate (at r depot)
+set predicate (free-robot r)
+set predicate (at car depot)
+
+set predicate (at food depot)
+set predicate (at drugs depot)
+set predicate (at tools depot)
+
+set predicate (at p1 zone1)
+set predicate (at p2 zone1)
+set predicate (at p3 zone2)
+
+set predicate (person-needs-content p1 food)
+set predicate (person-needs-content p1 drugs)
+
+set predicate (person-needs-content p2 drugs)
+
+set predicate (person-needs-content p3 food)
+
+set predicate (free-box b1)
+set predicate (free-box b2)
+set predicate (free-box b3)
+set predicate (free-box b4)
+set predicate (free-box b5)
+
+set predicate (free-slot sl1)
+set predicate (free-slot sl2)
+set predicate (free-slot sl3)
+set predicate (free-slot sl4)
+
+set predicate (slot-of-carrier sl1 car)
+set predicate (slot-of-carrier sl2 car)
+set predicate (slot-of-carrier sl3 car)
+set predicate (slot-of-carrier sl4 car)
+
+
+

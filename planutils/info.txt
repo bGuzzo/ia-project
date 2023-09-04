@@ -1,4 +1,4 @@
-1. Build dokerfile: sudo docker build . -f Dokerfile  -t planutils-dev:latest
+1. Build dokerfile: sudo docker build . -f Dockerfile  -t planutils-dev:latest
 2. Run container: sudo docker run -it --privileged planutils-dev:latest bash
 3. nano problem.pddl -> definire il problema nel container
 4. nano domain.pddl -> definire il dominio nel container

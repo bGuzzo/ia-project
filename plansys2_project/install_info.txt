@@ -1,6 +1,8 @@
+sudo docker build . -f Dockerfile  -t planutils-dev:latest
+
 sudo docker run -it ubuntu:jammy /bin/bash
 
-sudo apt update && sudo apt install locales
+apt update && sudo apt install locales
 locale-gen en_US en_US.UTF-8
 update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -16,6 +18,8 @@ apt upgrade -y
 apt install ros-iron-ros-base -y
 source /opt/ros/iron/setup.bash
 apt install ros-iron-plansys2-* -y
+apt install gcc -y
+apt install python3 -y
 
 
 
