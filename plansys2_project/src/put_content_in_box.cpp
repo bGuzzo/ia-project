@@ -28,7 +28,7 @@ private:
     }
     else
     {
-      finish(true, 1.0, "Robot " + arguments[2] + " putted content " + arguments[1] + " in box " + arguments[0] + "in zone " + arguments[3] + "\n");
+      finish(true, 1.0, "Robot " + arguments[2] + " putted content " + arguments[1] + " in box " + arguments[0] + " in zone " + arguments[3] + "\n");
       progress_ = 0.0;
       std::cout << std::endl;
     }
