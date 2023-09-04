@@ -8,12 +8,12 @@
         box content robot carrier - movable
     )
 
-    (:functions
-        (path-cost ?rob - robot)
-        (content-cost ?c - content)
-        (box-cost ?b - box)
-        (carrier-cost ?car - carrier)
-    )
+    ; (:functions
+    ;     (path-cost ?rob - robot)
+    ;     (content-cost ?c - content)
+    ;     (box-cost ?b - box)
+    ;     (carrier-cost ?car - carrier)
+    ; )
 
     (:predicates
         (at ?obj - locatable ?zone - zone)
@@ -43,10 +43,10 @@
             (at start (not (free-box ?box)))
             (at end (free-robot ?rob))
             (at end (box-filled ?box ?cont))
-            (at end (increase (path-cost ?rob) (content-cost ?cont)))
-            (at end (increase
-                    (box-cost ?box)
-                    (content-cost ?cont)))
+            ; (at end (increase (path-cost ?rob) (content-cost ?cont)))
+            ; (at end (increase
+            ;         (box-cost ?box)
+            ;         (content-cost ?cont)))
         )
     )
 
@@ -70,11 +70,11 @@
             (at start (person-has-content ?per ?cont))
             (at end (free-robot ?rob))
             (at end (free-box ?box))
-            (at end (increase (path-cost ?rob) (content-cost ?cont)))
             (at end (not (person-needs-content ?per ?cont)))
-            (at end (decrease
-                    (box-cost ?box)
-                    (content-cost ?cont)))
+            ; (at end (increase (path-cost ?rob) (content-cost ?cont)))
+            ; (at end (decrease
+            ;         (box-cost ?box)
+            ;         (content-cost ?cont)))
         )
     )
 
@@ -96,8 +96,8 @@
             (at start (not (free-slot ?slot)))
             (at end (box-on-carrier ?box ?car))
             (at end (free-robot ?rob))
-            (at end (increase (path-cost ?rob) (box-cost ?box)))
-            (at end (increase (carrier-cost ?car) (box-cost ?box)))
+            ; (at end (increase (path-cost ?rob) (box-cost ?box)))
+            ; (at end (increase (carrier-cost ?car) (box-cost ?box)))
         )
     )
 
@@ -118,8 +118,8 @@
             (at end (free-robot ?rob))
             (at end (at ?box ?zone))
             (at end (free-slot ?slot))
-            (at end (increase (path-cost ?rob) (box-cost ?box)))
-            (at end (decrease (carrier-cost ?car) (box-cost ?box)))
+            ; (at end (increase (path-cost ?rob) (box-cost ?box)))
+            ; (at end (decrease (carrier-cost ?car) (box-cost ?box)))
         )
     )
 
@@ -136,14 +136,15 @@
             (at start (not (at ?rob ?from)))
             (at end (free-robot ?rob))
             (at end (at ?rob ?to))
-            (at end (increase (path-cost ?rob) 3))
+            ; (at end (increase (path-cost ?rob) 3))
         )
     ) 
 
     (:durative-action move_robot_with_carrier
         :parameters (?rob - robot ?car - carrier ?from - zone ?to - zone
         )
-        :duration (= ?duration (* (carrier-cost ?car) 3))
+        ; :duration (= ?duration (* (carrier-cost ?car) 3))
+        :duration (= ?duration 3)
         :condition (and
             (at start (at ?rob ?from))
             (at start (at ?car ?from))
@@ -156,9 +157,9 @@
             (at end (free-robot ?rob))
             (at end (at ?rob ?to))
             (at end (at ?car ?to))
-            (at end (increase
-                    (path-cost ?rob)
-                    (* (carrier-cost ?car) 3)))
+            ; (at end (increase
+            ;         (path-cost ?rob)
+            ;         (* (carrier-cost ?car) 3)))
         )
     )
 )
