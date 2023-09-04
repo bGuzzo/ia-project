@@ -32,7 +32,7 @@ private:
             progress_ = 0.0;
             std::cout << std::endl;
         }
-        // std::cout << "\r\e[K" << std::flush;
+        std::cout << "Robot " + arguments[0] + " is moving from zone " + arguments[1] + " to zone " + arguments[2] + "\n" << std::flush;
         // std::cout << "Robot " + arguments[0] + " is moving from zone " + arguments[1] + " to zone " + arguments[2] + " [" << std::min(100.0, progress_ * 100.0) << "%]  " << std::flush;
     }
     float progress_;
