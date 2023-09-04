@@ -1,15 +1,11 @@
 (define (domain rescue_sys_conv_plansys)
     (:requirements :negative-preconditions :typing :conditional-effects :adl :universal-preconditions :durative-actions :numeric-fluents :duration-inequalities)
 
-    ; (:types
-    ;     zone locatable slot - object
-    ;     movable fixed - locatable
-    ;     person - fixed
-    ;     box content robot carrier - movable
-    ; )
-
     (:types
-        zone locatable slot movable fixed person box content robot carrier - object
+        zone locatable slot - object
+        movable fixed - locatable
+        person - fixed
+        box content robot carrier - movable
     )
 
     (:functions
