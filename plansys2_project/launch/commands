@@ -80,5 +80,8 @@ set predicate (slot-of-carrier sl2 car)
 set predicate (slot-of-carrier sl3 car)
 set predicate (slot-of-carrier sl4 car)
 
-
+set goal (person-has-content p1 food)
+set goal (person-has-content p1 drugs)
+set goal (person-has-content p2 drugs)
+set goal (person-has-content p3 food)
 
