@@ -1,0 +1,159 @@
+### NODES LOGGING
+
+[put_content_in_box_node-7] Robot r is putting content drugs in box b4 in zone depot
+[put_content_in_box_node-7] Robot r is putting content drugs in box b4 in zone depot
+[put_content_in_box_node-7] Robot r is putting content drugs in box b4 in zone depot
+[put_content_in_box_node-7] Robot r is putting content drugs in box b4 in zone depot
+[put_content_in_box_node-7] Robot r is putting content drugs in box b4 in zone depot
+[put_content_in_box_node-7] 
+[put_content_in_box_node-7] Robot r is putting content drugs in box b4 in zone depot
+[put_box_on_carrier_node-6] Robot r is putting box b4 on the carrier car in zone depot occupying slot sl1
+[put_box_on_carrier_node-6] Robot r is putting box b4 on the carrier car in zone depot occupying slot sl1
+[put_box_on_carrier_node-6] Robot r is putting box b4 on the carrier car in zone depot occupying slot sl1
+[put_box_on_carrier_node-6] Robot r is putting box b4 on the carrier car in zone depot occupying slot sl1
+[put_box_on_carrier_node-6] Robot r is putting box b4 on the carrier car in zone depot occupying slot sl1
+[put_box_on_carrier_node-6] 
+[put_box_on_carrier_node-6] Robot r is putting box b4 on the carrier car in zone depot occupying slot sl1
+[put_content_in_box_node-7] Robot r is putting content drugs in box b5 in zone depot
+[put_content_in_box_node-7] Robot r is putting content drugs in box b5 in zone depot
+[put_content_in_box_node-7] Robot r is putting content drugs in box b5 in zone depot
+[put_content_in_box_node-7] Robot r is putting content drugs in box b5 in zone depot
+[put_content_in_box_node-7] Robot r is putting content drugs in box b5 in zone depot
+[put_content_in_box_node-7] 
+[put_content_in_box_node-7] Robot r is putting content drugs in box b5 in zone depot
+[put_box_on_carrier_node-6] Robot r is putting box b5 on the carrier car in zone depot occupying slot sl2
+[put_box_on_carrier_node-6] Robot r is putting box b5 on the carrier car in zone depot occupying slot sl2
+[put_box_on_carrier_node-6] Robot r is putting box b5 on the carrier car in zone depot occupying slot sl2
+[put_box_on_carrier_node-6] Robot r is putting box b5 on the carrier car in zone depot occupying slot sl2
+[put_box_on_carrier_node-6] Robot r is putting box b5 on the carrier car in zone depot occupying slot sl2
+[put_box_on_carrier_node-6] 
+[put_box_on_carrier_node-6] Robot r is putting box b5 on the carrier car in zone depot occupying slot sl2
+[put_content_in_box_node-7] Robot r is putting content food in box b2 in zone depot
+[put_content_in_box_node-7] Robot r is putting content food in box b2 in zone depot
+[put_content_in_box_node-7] Robot r is putting content food in box b2 in zone depot
+[put_content_in_box_node-7] Robot r is putting content food in box b2 in zone depot
+[put_content_in_box_node-7] Robot r is putting content food in box b2 in zone depot
+[put_content_in_box_node-7] 
+[put_content_in_box_node-7] Robot r is putting content food in box b2 in zone depot
+[put_box_on_carrier_node-6] Robot r is putting box b2 on the carrier car in zone depot occupying slot sl3
+[put_box_on_carrier_node-6] Robot r is putting box b2 on the carrier car in zone depot occupying slot sl3
+[put_box_on_carrier_node-6] Robot r is putting box b2 on the carrier car in zone depot occupying slot sl3
+[put_box_on_carrier_node-6] Robot r is putting box b2 on the carrier car in zone depot occupying slot sl3
+[put_box_on_carrier_node-6] Robot r is putting box b2 on the carrier car in zone depot occupying slot sl3
+[put_box_on_carrier_node-6] 
+[put_box_on_carrier_node-6] Robot r is putting box b2 on the carrier car in zone depot occupying slot sl3
+[put_content_in_box_node-7] Robot r is putting content food in box b1 in zone depot
+[put_content_in_box_node-7] Robot r is putting content food in box b1 in zone depot
+[put_content_in_box_node-7] Robot r is putting content food in box b1 in zone depot
+[put_content_in_box_node-7] Robot r is putting content food in box b1 in zone depot
+[put_content_in_box_node-7] Robot r is putting content food in box b1 in zone depot
+[put_content_in_box_node-7] 
+[put_content_in_box_node-7] Robot r is putting content food in box b1 in zone depot
+[put_box_on_carrier_node-6] Robot r is putting box b1 on the carrier car in zone depot occupying slot sl4
+[put_box_on_carrier_node-6] Robot r is putting box b1 on the carrier car in zone depot occupying slot sl4
+[put_box_on_carrier_node-6] Robot r is putting box b1 on the carrier car in zone depot occupying slot sl4
+[put_box_on_carrier_node-6] Robot r is putting box b1 on the carrier car in zone depot occupying slot sl4
+[put_box_on_carrier_node-6] Robot r is putting box b1 on the carrier car in zone depot occupying slot sl4
+[put_box_on_carrier_node-6] 
+[put_box_on_carrier_node-6] Robot r is putting box b1 on the carrier car in zone depot occupying slot sl4
+[move_robot_with_carrier_node-4] Robot r is moving with carrier car from zone depot to zone zone1
+[move_robot_with_carrier_node-4] Robot r is moving with carrier car from zone depot to zone zone1
+[move_robot_with_carrier_node-4] Robot r is moving with carrier car from zone depot to zone zone1
+[move_robot_with_carrier_node-4] Robot r is moving with carrier car from zone depot to zone zone1
+[move_robot_with_carrier_node-4] Robot r is moving with carrier car from zone depot to zone zone1
+[move_robot_with_carrier_node-4] 
+[move_robot_with_carrier_node-4] Robot r is moving with carrier car from zone depot to zone zone1
+[drop_box_of_carrier_node-2] Robot r is dropping box b4 of the carrier car in zone zone1 releasing slot sl2
+[drop_box_of_carrier_node-2] Robot r is dropping box b4 of the carrier car in zone zone1 releasing slot sl2
+[drop_box_of_carrier_node-2] Robot r is dropping box b4 of the carrier car in zone zone1 releasing slot sl2
+[drop_box_of_carrier_node-2] Robot r is dropping box b4 of the carrier car in zone zone1 releasing slot sl2
+[drop_box_of_carrier_node-2] Robot r is dropping box b4 of the carrier car in zone zone1 releasing slot sl2
+[drop_box_of_carrier_node-2] 
+[drop_box_of_carrier_node-2] Robot r is dropping box b4 of the carrier car in zone zone1 releasing slot sl2
+[drop_content_of_box_node-3] Robot r is dropping content drugs of the box b4 in zone p1
+[drop_content_of_box_node-3] Robot r is dropping content drugs of the box b4 in zone p1
+[drop_content_of_box_node-3] Robot r is dropping content drugs of the box b4 in zone p1
+[drop_content_of_box_node-3] Robot r is dropping content drugs of the box b4 in zone p1
+[drop_content_of_box_node-3] Robot r is dropping content drugs of the box b4 in zone p1
+[drop_content_of_box_node-3] 
+[drop_content_of_box_node-3] Robot r is dropping content drugs of the box b4 in zone p1
+[drop_box_of_carrier_node-2] Robot r is dropping box b5 of the carrier car in zone zone1 releasing slot sl1
+[drop_box_of_carrier_node-2] Robot r is dropping box b5 of the carrier car in zone zone1 releasing slot sl1
+[drop_box_of_carrier_node-2] Robot r is dropping box b5 of the carrier car in zone zone1 releasing slot sl1
+[drop_box_of_carrier_node-2] Robot r is dropping box b5 of the carrier car in zone zone1 releasing slot sl1
+[drop_box_of_carrier_node-2] Robot r is dropping box b5 of the carrier car in zone zone1 releasing slot sl1
+[drop_box_of_carrier_node-2] 
+[drop_box_of_carrier_node-2] Robot r is dropping box b5 of the carrier car in zone zone1 releasing slot sl1
+[drop_content_of_box_node-3] Robot r is dropping content drugs of the box b5 in zone p2
+[drop_content_of_box_node-3] Robot r is dropping content drugs of the box b5 in zone p2
+[drop_content_of_box_node-3] Robot r is dropping content drugs of the box b5 in zone p2
+[drop_content_of_box_node-3] Robot r is dropping content drugs of the box b5 in zone p2
+[drop_content_of_box_node-3] Robot r is dropping content drugs of the box b5 in zone p2
+[drop_content_of_box_node-3] 
+[drop_content_of_box_node-3] Robot r is dropping content drugs of the box b5 in zone p2
+[drop_box_of_carrier_node-2] Robot r is dropping box b2 of the carrier car in zone zone1 releasing slot sl3
+[drop_box_of_carrier_node-2] Robot r is dropping box b2 of the carrier car in zone zone1 releasing slot sl3
+[drop_box_of_carrier_node-2] Robot r is dropping box b2 of the carrier car in zone zone1 releasing slot sl3
+[drop_box_of_carrier_node-2] Robot r is dropping box b2 of the carrier car in zone zone1 releasing slot sl3
+[drop_box_of_carrier_node-2] Robot r is dropping box b2 of the carrier car in zone zone1 releasing slot sl3
+[drop_box_of_carrier_node-2] 
+[drop_box_of_carrier_node-2] Robot r is dropping box b2 of the carrier car in zone zone1 releasing slot sl3
+[drop_content_of_box_node-3] Robot r is dropping content food of the box b2 in zone p1
+[drop_content_of_box_node-3] Robot r is dropping content food of the box b2 in zone p1
+[drop_content_of_box_node-3] Robot r is dropping content food of the box b2 in zone p1
+[drop_content_of_box_node-3] Robot r is dropping content food of the box b2 in zone p1
+[drop_content_of_box_node-3] Robot r is dropping content food of the box b2 in zone p1
+[drop_content_of_box_node-3] 
+[drop_content_of_box_node-3] Robot r is dropping content food of the box b2 in zone p1
+[move_robot_with_carrier_node-4] Robot r is moving with carrier car from zone zone1 to zone zone2
+[move_robot_with_carrier_node-4] Robot r is moving with carrier car from zone zone1 to zone zone2
+[move_robot_with_carrier_node-4] Robot r is moving with carrier car from zone zone1 to zone zone2
+[move_robot_with_carrier_node-4] Robot r is moving with carrier car from zone zone1 to zone zone2
+[move_robot_with_carrier_node-4] Robot r is moving with carrier car from zone zone1 to zone zone2
+[move_robot_with_carrier_node-4] 
+[move_robot_with_carrier_node-4] Robot r is moving with carrier car from zone zone1 to zone zone2
+[drop_box_of_carrier_node-2] Robot r is dropping box b1 of the carrier car in zone zone2 releasing slot sl4
+[drop_box_of_carrier_node-2] Robot r is dropping box b1 of the carrier car in zone zone2 releasing slot sl4
+[drop_box_of_carrier_node-2] Robot r is dropping box b1 of the carrier car in zone zone2 releasing slot sl4
+[drop_box_of_carrier_node-2] Robot r is dropping box b1 of the carrier car in zone zone2 releasing slot sl4
+[drop_box_of_carrier_node-2] Robot r is dropping box b1 of the carrier car in zone zone2 releasing slot sl4
+[drop_box_of_carrier_node-2] 
+[drop_box_of_carrier_node-2] Robot r is dropping box b1 of the carrier car in zone zone2 releasing slot sl4
+[drop_content_of_box_node-3] Robot r is dropping content food of the box b1 in zone p3
+[drop_content_of_box_node-3] Robot r is dropping content food of the box b1 in zone p3
+[drop_content_of_box_node-3] Robot r is dropping content food of the box b1 in zone p3
+[drop_content_of_box_node-3] Robot r is dropping content food of the box b1 in zone p3
+[drop_content_of_box_node-3] Robot r is dropping content food of the box b1 in zone p3
+[drop_content_of_box_node-3] 
+[drop_content_of_box_node-3] Robot r is dropping content food of the box b1 in zone p3
+[plansys2_node-1] [INFO] [1693842604.443263686] [executor]: Plan Succeeded
+
+
+### TERMINAL LOGGING
+
+[INFO] [1693842567.077334906] [terminal]: No problem file specified.
+ROS2 Planning System console. Type "quit" to finish
+> source /home/bruno/Documents/GitHub/ia-project/plansys2_project/launch/commands
+> run plan-file /home/bruno/Documents/GitHub/ia-project/plansys2_project/pddl/rescue_plan.plan
+The plan read from "/home/bruno/Documents/GitHub/ia-project/plansys2_project/pddl/rescue_plan.plan" is 
+0.0003:	(put_content_in_box b4 drugs r depot)	[1]
+1.0005:	(put_box_on_carrier b4 car r depot sl1)	[2]
+3.0008:	(put_content_in_box b5 drugs r depot)	[1]
+4.001:	(put_box_on_carrier b5 car r depot sl2)	[2]
+6.0012:	(put_content_in_box b2 food r depot)	[1]
+7.0015:	(put_box_on_carrier b2 car r depot sl3)	[2]
+9.0017:	(put_content_in_box b1 food r depot)	[1]
+10.002:	(put_box_on_carrier b1 car r depot sl4)	[2]
+12.0022:	(move_robot_with_carrier r car depot zone1)	[21]
+33.0025:	(drop_box_of_carrier b4 car r zone1 sl2)	[2]
+35.0028:	(drop_content_of_box b4 drugs r p1 zone1)	[1]
+36.003:	(drop_box_of_carrier b5 car r zone1 sl1)	[2]
+38.0033:	(drop_content_of_box b5 drugs r p2 zone1)	[1]
+39.0035:	(drop_box_of_carrier b2 car r zone1 sl3)	[2]
+41.0037:	(drop_content_of_box b2 food r p1 zone1)	[1]
+42.004:	(move_robot_with_carrier r car zone1 zone2)	[9]
+51.0042:	(drop_box_of_carrier b1 car r zone2 sl4)	[2]
+53.0045:	(drop_content_of_box b1 food r p3 zone2)	[1]
+[INFO] [1693842606.616841620] [executor_client]: Plan Succeeded
+
+Successful finished 
