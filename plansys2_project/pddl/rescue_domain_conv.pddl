@@ -1,16 +1,7 @@
 (define (domain rescue_sys_conv_plansys)
-    ; (:requirements :typing :fluents :durative-actions)
-    ; (:requirements :negative-preconditions :typing :conditional-effects :adl :universal-preconditions :durative-actions :numeric-fluents :duration-inequalities)
     (:requirements :negative-preconditions :typing :conditional-effects :adl :universal-preconditions :durative-actions)
 
     (:types zone locatable slot person box content robot carrier )
-
-    ; (:functions
-    ;     (path_cost ?rob - robot)
-    ;     (content_cost ?c - content)
-    ;     (box_cost ?b - box)
-    ;     (carrier_cost ?car - carrier)
-    ; )
 
     (:predicates
         (robot_at ?rob - robot ?zone - zone)
@@ -44,10 +35,6 @@
             (at start (not (free_box ?box)))
             (at end (free_robot ?rob))
             (at end (box_filled ?box ?cont))
-            ; (at end (increase (path_cost ?rob) (content_cost ?cont)))
-            ; (at end (increase
-            ;         (box_cost ?box)
-            ;         (content_cost ?cont)))
         )
     )
 
@@ -72,10 +59,6 @@
             (at end (free_robot ?rob))
             (at end (free_box ?box))
             (at end (not (person_needs_content ?per ?cont)))
-            ; (at end (increase (path_cost ?rob) (content_cost ?cont)))
-            ; (at end (decrease
-            ;         (box_cost ?box)
-            ;         (content_cost ?cont)))
         )
     )
 
@@ -97,8 +80,6 @@
             (at start (not (free_slot ?slot)))
             (at end (box_on_carrier ?box ?car))
             (at end (free_robot ?rob))
-            ; (at end (increase (path_cost ?rob) (box_cost ?box)))
-            ; (at end (increase (carrier_cost ?car) (box_cost ?box)))
         )
     )
 
@@ -119,8 +100,6 @@
             (at end (free_robot ?rob))
             (at end (box_at ?box ?zone))
             (at end (free_slot ?slot))
-            ; (at end (increase (path_cost ?rob) (box_cost ?box)))
-            ; (at end (decrease (carrier_cost ?car) (box_cost ?box)))
         )
     )
 
@@ -137,14 +116,12 @@
             (at start (not (robot_at ?rob ?from)))
             (at end (free_robot ?rob))
             (at end (robot_at ?rob ?to))
-            ; (at end (increase (path_cost ?rob) 3))
         )
     ) 
 
     (:durative-action move_robot_with_carrier
         :parameters (?rob - robot ?car - carrier ?from - zone ?to - zone
         )
-        ; :duration (= ?duration (* (carrier_cost ?car) 3))
         :duration(= ?duration 3)
         :condition (and
             (at start (robot_at ?rob ?from))
@@ -158,9 +135,6 @@
             (at end (free_robot ?rob))
             (at end (robot_at ?rob ?to))
             (at end (carrier_at ?car ?to))
-            ; (at end (increase
-            ;         (path_cost ?rob)
-            ;         (* (carrier_cost ?car) 3)))
         )
     )
 )
