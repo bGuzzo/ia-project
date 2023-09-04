@@ -1,4 +1,4 @@
-(define (domain rescue_sys_conv_plansys)
+(define (domain rescue_sys_plansys)
     (:requirements :negative-preconditions :typing :conditional-effects :adl :universal-preconditions :durative-actions)
 
     (:types zone locatable slot person box content robot carrier )
