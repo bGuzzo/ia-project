@@ -1,5 +1,5 @@
 (define (domain rescue_sys_conv_plansys)
-    (:requirements :negative-preconditions :typing :conditional-effects :adl :universal-preconditions :durative-actions :numeric-fluents)
+    (:requirements :negative-preconditions :typing :conditional-effects :adl :universal-preconditions :durative-actions :numeric-fluents :duration-inequalities)
 
     (:types
         zone locatable slot - object
@@ -143,7 +143,7 @@
     (:durative-action move_robot_with_carrier
         :parameters (?rob - robot ?car - carrier ?from - zone ?to - zone
         )
-        :duration (= ?duration 4)
+        :duration (= ?duration (* (carrier_cost ?car) 3))
         :condition (and
             (at start (at ?rob ?from))
             (at start (at ?car ?from))
