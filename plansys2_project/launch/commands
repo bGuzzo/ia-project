@@ -25,19 +25,19 @@ set instance drugs content
 set instance food content
 set instance tools content
 
-set function (= (content-cost drugs) 1)
-set function (= (content-cost food) 2)
-set function (= (content-cost tools) 3)
+set function (= (content_cost drugs) 1)
+set function (= (content_cost food) 2)
+set function (= (content_cost tools) 3)
 
-set function (= (box-cost b1) 0)
-set function (= (box-cost b2) 0)
-set function (= (box-cost b3) 0)
-set function (= (box-cost b4) 0)
-set function (= (box-cost b5) 0)
+set function (= (box_cost b1) 0)
+set function (= (box_cost b2) 0)
+set function (= (box_cost b3) 0)
+set function (= (box_cost b4) 0)
+set function (= (box_cost b5) 0)
 
-set function (= (carrier-cost car) 1)
+set function (= (carrier_cost car) 1)
 
-set function (= (path-cost r) 0)
+set function (= (path_cost r) 0)
 
 set predicate (at b1 depot)
 set predicate (at b2 depot)
@@ -46,7 +46,7 @@ set predicate (at b4 depot)
 set predicate (at b5 depot)
 
 set predicate (at r depot)
-set predicate (free-robot r)
+set predicate (free_robot r)
 set predicate (at car depot)
 
 set predicate (at food depot)
@@ -57,31 +57,31 @@ set predicate (at p1 zone1)
 set predicate (at p2 zone1)
 set predicate (at p3 zone2)
 
-set predicate (person-needs-content p1 food)
-set predicate (person-needs-content p1 drugs)
+set predicate (person_needs_content p1 food)
+set predicate (person_needs_content p1 drugs)
 
-set predicate (person-needs-content p2 drugs)
+set predicate (person_needs_content p2 drugs)
 
-set predicate (person-needs-content p3 food)
+set predicate (person_needs_content p3 food)
 
-set predicate (free-box b1)
-set predicate (free-box b2)
-set predicate (free-box b3)
-set predicate (free-box b4)
-set predicate (free-box b5)
+set predicate (free_box b1)
+set predicate (free_box b2)
+set predicate (free_box b3)
+set predicate (free_box b4)
+set predicate (free_box b5)
 
-set predicate (free-slot sl1)
-set predicate (free-slot sl2)
-set predicate (free-slot sl3)
-set predicate (free-slot sl4)
+set predicate (free_slot sl1)
+set predicate (free_slot sl2)
+set predicate (free_slot sl3)
+set predicate (free_slot sl4)
 
-set predicate (slot-of-carrier sl1 car)
-set predicate (slot-of-carrier sl2 car)
-set predicate (slot-of-carrier sl3 car)
-set predicate (slot-of-carrier sl4 car)
+set predicate (slot_of_carrier sl1 car)
+set predicate (slot_of_carrier sl2 car)
+set predicate (slot_of_carrier sl3 car)
+set predicate (slot_of_carrier sl4 car)
 
-set goal (person-has-content p1 food)
-set goal (person-has-content p1 drugs)
-set goal (person-has-content p2 drugs)
-set goal (person-has-content p3 food)
+set goal (person_has_content p1 food)
+set goal (person_has_content p1 drugs)
+set goal (person_has_content p2 drugs)
+set goal (person_has_content p3 food)
 
