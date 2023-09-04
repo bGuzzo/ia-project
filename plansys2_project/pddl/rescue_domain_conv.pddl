@@ -145,7 +145,7 @@
         :parameters (?rob - robot ?car - carrier ?from - zone ?to - zone
         )
         ; :duration (= ?duration (* (carrier_cost ?car) 3))
-        :duration(= ?duration 6)
+        :duration(= ?duration 3)
         :condition (and
             (at start (robot_at ?rob ?from))
             (at start (carrier_at ?car ?from))
